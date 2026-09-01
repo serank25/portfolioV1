@@ -496,7 +496,7 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
         </div>
 
         <div class="reveal d2">
-          <form action="#" method="POST" novalidate>
+          <form id="contact-form">
             <div class="flex flex-col gap-4">
               <div class="grid sm:grid-cols-2 gap-4">
                 <div>
@@ -523,6 +523,7 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
               <button type="submit" class="shimmer w-full bg-accent text-white font-display font-bold text-sm py-3.5 rounded-xl hover:bg-accent-light transition-colors">
                 Send message →
               </button>
+              <p id="form-status" class="text-sm text-zinc-400" role="status" aria-live="polite"></p>
             </div>
           </form>
         </div>
@@ -571,6 +572,35 @@ function app() {
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
       document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+      // contact form — static-hosting-safe mailto handoff
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('form-status');
+      if (form && status) {
+        form.addEventListener('submit', event => {
+          event.preventDefault();
+
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+
+          const data = new FormData(form);
+          const name = String(data.get('name') || '').trim();
+          const email = String(data.get('email') || '').trim();
+          const subject = String(data.get('subject') || '').trim() || 'Portfolio inquiry';
+          const message = String(data.get('message') || '').trim();
+          const body = [
+            `Name: ${name}`,
+            `Email: ${email}`,
+            '',
+            message
+          ].join('\n');
+          const mailto = `mailto:serank2502@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+          status.textContent = 'Opening your email app. If nothing opens, email serank2502@gmail.com directly.';
+          window.location.href = mailto;
+        });
+      }
       // year
       document.getElementById('yr').textContent = new Date().getFullYear();
     },
