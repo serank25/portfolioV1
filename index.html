@@ -577,7 +577,7 @@ function app() {
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
       document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-      // contact form — static-hosting-safe mailto handoff
+      // contact form — static-hosting-safe mailto handoff with a visible fallback
       const form = document.getElementById('contact-form');
       const status = document.getElementById('form-status');
       if (form && status) {
@@ -602,7 +602,23 @@ function app() {
           ].join('\n');
           const mailto = `mailto:serank2502@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-          status.textContent = 'Opening your email app. If nothing opens, email serank2502@gmail.com directly.';
+          status.replaceChildren();
+          const notice = document.createElement('span');
+          notice.textContent = 'Your message is ready. If your email app did not open, ';
+          const emailLink = document.createElement('a');
+          emailLink.href = mailto;
+          emailLink.textContent = 'click here to open it';
+          emailLink.className = 'underline underline-offset-2 text-white hover:text-accent-light';
+          const fallback = document.createTextNode(' or email serank2502@gmail.com directly.');
+          status.append(notice, emailLink, fallback);
+
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(body).then(() => {
+              const copied = document.createTextNode(' The message was also copied to your clipboard.');
+              status.appendChild(copied);
+            }).catch(() => {});
+          }
+
           window.location.href = mailto;
         });
       }
