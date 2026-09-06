@@ -237,15 +237,34 @@
 
         <h3>Design foundation</h3>
         <p>The design process combines user research, persona development, information architecture, user journey mapping, wireframing, interaction design, usability testing, and high-fidelity prototyping in Figma.</p>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 border-l-2 border-accent pl-4"><strong>Research note:</strong> This case study presents a structured prototype synthesis and public-source research direction. The qualitative findings are hypotheses to validate with real logistics managers, warehouse owners, and 3PL/SME operators before implementation.</p>
 
+      </div>
+
+      <!-- Personas -->
+      <div class="max-w-5xl mx-auto px-6 mb-12">
+        <div class="reveal grid md:grid-cols-2 gap-4">
+          <div>
+            <div class="photo-frame w-full rounded-2xl">
+              <img src="assets/why-space/persona_1_logistics_manager.png" alt="Ananya Rao logistics manager persona: needs confidence and speed" loading="lazy"/>
+            </div>
+            <p class="img-caption mt-2">Ananya Rao — logistics manager and primary space seeker.</p>
+          </div>
+          <div>
+            <div class="photo-frame w-full rounded-2xl">
+              <img src="assets/why-space/persona_2_warehouse_owner.png" alt="Suresh Patil warehouse owner persona: needs qualified leads and operational confidence" loading="lazy"/>
+            </div>
+            <p class="img-caption mt-2">Suresh Patil — warehouse owner and facility manager.</p>
+          </div>
+        </div>
       </div>
 
       <!-- Full-width image -->
       <div class="max-w-5xl mx-auto px-6 mb-4">
         <div class="reveal photo-frame w-full h-56 md:h-80 rounded-2xl">
-          <img src="https://images.unsplash.com/photo-1581472723648-909f4851d4ae?w=1200&q=80" alt="Why Space information architecture and listing concept" loading="lazy"/>
+          <img src="assets/why-space/user_journey_emotional_graph.png" alt="Why Space user journey from need identification to move-in and tracking" loading="lazy"/>
         </div>
-        <p class="img-caption">Information architecture and warehouse listing concept for Why Space.</p>
+        <p class="img-caption">User journey showing how verification and tour scheduling rebuild confidence before agreement.</p>
       </div>
 
       <div class="max-w-3xl mx-auto px-6 pb-4 prose-cs">
@@ -343,20 +362,20 @@
         <p class="img-caption">High-fidelity screens for the Why Space warehouse space-sharing experience.</p>
       </div>
 
-      <!-- Before / After split -->
+      <!-- Wireframe and information architecture -->
       <div class="max-w-5xl mx-auto px-6 mb-12">
         <div class="reveal grid md:grid-cols-2 gap-4">
           <div>
-            <div class="photo-frame w-full h-52 rounded-2xl">
-              <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=700&q=80" alt="Why Space warehouse listing concept" loading="lazy"/>
+            <div class="photo-frame w-full rounded-2xl">
+              <img src="assets/why-space/wireframe_find_space.png" alt="Low-fidelity Find Space wireframe with match results, comparison, and tour actions" loading="lazy"/>
             </div>
-            <p class="img-caption mt-2">Space discovery and listing concept</p>
+            <p class="img-caption mt-2">Low-fidelity Find Space flow: capture requirements, show matches, compare, and request a tour.</p>
           </div>
           <div>
-            <div class="photo-frame w-full h-52 rounded-2xl">
-              <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=700&q=80" alt="Why Space comparison and request flow concept" loading="lazy"/>
+            <div class="photo-frame w-full rounded-2xl">
+              <img src="assets/why-space/information_architecture.png" alt="Why Space information architecture for finding and listing warehouse space" loading="lazy"/>
             </div>
-            <p class="img-caption mt-2">Comparison and request flow concept</p>
+            <p class="img-caption mt-2">Information architecture for the Find space and List space journeys.</p>
           </div>
         </div>
       </div>
@@ -364,6 +383,12 @@
       <div class="max-w-3xl mx-auto px-6 pb-16 prose-cs">
 
         <h2>Key design decisions</h2>
+        <h3>Make freshness and trust visible</h3>
+        <p>Availability freshness, facility evidence, response expectations, and verification status are treated as decision-making content rather than hidden metadata. This directly addresses the uncertainty created by stale listings and fragmented broker-led discovery.</p>
+
+        <h3>Use one requirement across the journey</h3>
+        <p>A short needs wizard captures location, usable capacity, move-in timing, term, and service requirements. The same requirement powers matching, comparison, enquiries, and tour requests so users do not have to repeat themselves.</p>
+
         <h3>Design for both audiences</h3>
         <p>The platform serves businesses searching for storage and warehouse owners or logistics managers listing unused capacity. The interface keeps both journeys distinct while making the handoff between them easy to understand.</p>
 
