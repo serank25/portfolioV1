@@ -42,7 +42,6 @@
         <li><a href="index.html#services" class="nav-link text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Services</a></li>
         <li><a href="projects.html" class="nav-link text-accent font-medium">Work</a></li>
         <li><a href="index.html#about" class="nav-link text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">About</a></li>
-        <li><a href="blog.html" class="nav-link text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Blog</a></li>
         <li><a href="index.html#contact" class="nav-link text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Contact</a></li>
       </ul>
       <div class="flex items-center gap-3">
@@ -62,7 +61,6 @@
         <li><a href="index.html#services" @click="mobileMenu=false" class="block text-zinc-700 dark:text-zinc-300">Services</a></li>
         <li><a href="projects.html" class="block text-accent font-medium">Work</a></li>
         <li><a href="index.html#about" @click="mobileMenu=false" class="block text-zinc-700 dark:text-zinc-300">About</a></li>
-        <li><a href="blog.html" @click="mobileMenu=false" class="block text-zinc-700 dark:text-zinc-300">Blog</a></li>
         <li><a href="index.html#contact" @click="mobileMenu=false" class="block text-zinc-700 dark:text-zinc-300">Contact</a></li>
       </ul>
     </div>
@@ -73,18 +71,8 @@
       <div class="absolute top-0 right-0 w-80 h-80 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
       <div class="max-w-6xl mx-auto px-6 relative z-10">
         <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Portfolio</p>
-        <h1 class="reveal font-display font-bold text-5xl md:text-6xl text-zinc-900 dark:text-white leading-tight mb-4">All Projects</h1>
+        <h1 class="reveal font-display font-bold text-5xl md:text-6xl text-zinc-900 dark:text-white leading-tight mb-4">Warehouse Space Sharer</h1>
         <p class="reveal text-lg text-zinc-500 dark:text-zinc-400 max-w-xl leading-relaxed mb-8">A closer look at the decisions behind a product experience designed for trust.</p>
-        <div class="reveal flex flex-wrap gap-2">
-          <template x-for="f in filterOptions" :key="f.value">
-            <button
-              @click="filter = f.value"
-              :class="filter === f.value ? 'bg-accent text-white border-accent' : 'bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-700 hover:border-accent'"
-              class="text-sm px-4 py-1.5 rounded-full border transition-colors"
-              x-text="f.label">
-            </button>
-          </template>
-        </div>
       </div>
     </section>
 
@@ -157,7 +145,6 @@
   <footer class="border-t border-zinc-100 dark:border-zinc-900">
     <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p class="text-sm text-zinc-400">&copy; <span id="year"></span> Seran K. All rights reserved.</p>
-      <p class="text-xs text-zinc-500">Built with Tailwind CSS &amp; Alpine.js</p>
     </div>
   </footer>
 
@@ -169,25 +156,8 @@
         mobileMenu: false,
         filter: 'all',
 
-        filterOptions: [
-          { value: 'all',       label: 'All (9)' },
-          { value: 'product',   label: 'Product design' },
-          { value: 'saas',      label: 'SaaS' },
-          { value: 'landing',   label: 'Landing page' },
-          { value: 'agency',    label: 'Agency' },
-          { value: 'ecommerce', label: 'E-commerce' },
-        ],
-
         allProjects: [
-          { id:1, title:'Why Space — Warehouse Space-Sharing Platform', category:'product', categoryLabel:'Product design', tags:['Product design','User research','Figma','Figma Make'], year:'2026', desc:'An India-first marketplace concept for finding verified, flexible warehouse capacity and helping warehouse owners monetise idle space through clear listings, matching, comparison, and tour requests.', img:'assets/why-space/wireframe_find_space.png', url:'https://www.figma.com/proto/t6pKWiB239mQkBvoRTiPBe/Why-Space?node-id=58-15&starting-point-node-id=58%3A15&t=9b45kdATk45tirfG-1' },
-          { id:2,  title:'Finlo — Fintech App',    category:'landing',   categoryLabel:'Landing page', tags:['Landing page','Fintech','Alpine.js'], year:'2024', desc:'Marketing site and onboarding flow for a personal finance app targeting young professionals.',                              img:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80', url:'case-study.html' },
-          { id:3,  title:'Orea — Creative Agency', category:'agency',    categoryLabel:'Agency',       tags:['Agency','Animation'],                year:'2024', desc:'Bold editorial site for a Paris-based branding studio. Scroll-driven animations and custom cursor.',                      img:'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=700&q=80', url:'case-study.html' },
-          { id:4,  title:'Vesta — Real Estate',    category:'landing',   categoryLabel:'Landing page', tags:['Landing page','Real Estate'],         year:'2024', desc:'Conversion-focused landing page for a proptech startup entering the French market.',                                      img:'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=700&q=80',  url:'case-study.html' },
-          { id:5,  title:'Arkio — SaaS Analytics', category:'saas',      categoryLabel:'SaaS',         tags:['SaaS','Dashboard','Figma'],           year:'2024', desc:'Data visualisation dashboard for a B2B analytics platform. Designed for clarity at high data density.',                img:'https://images.unsplash.com/photo-1581472723648-909f4851d4ae?w=700&q=80', url:'case-study.html' },
-          { id:6,  title:'Bloom — E-commerce',     category:'ecommerce', categoryLabel:'E-commerce',   tags:['E-commerce','Shopify'],               year:'2023', desc:'Custom Shopify theme for a sustainable cosmetics brand. Mobile-first with high emphasis on product imagery.',           img:'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=700&q=80',  url:'case-study.html' },
-          { id:7,  title:'Mira — Health App',      category:'landing',   categoryLabel:'Landing page', tags:['Landing page','Health','Tailwind'],   year:'2023', desc:'App landing page for a mental wellness startup. Warm, accessible design with strong social proof.',                    img:'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&q=80', url:'case-study.html' },
-          { id:8,  title:'Noto — Agency Rebrand',  category:'agency',    categoryLabel:'Agency',       tags:['Agency','Rebrand'],                  year:'2023', desc:'Full rebrand and website for a digital communications agency in Lyon.',                                                img:'https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80', url:'case-study.html' },
-          { id:9,  title:'Kova — E-commerce',      category:'ecommerce', categoryLabel:'E-commerce',   tags:['E-commerce','Figma'],                year:'2023', desc:'Product page redesign and checkout optimisation for a DTC furniture brand. Reduced cart abandonment by 18%.',         img:'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=700&q=80',  url:'case-study.html' },
+          { id:1, title:'Why Space — Warehouse Space-Sharing Platform', category:'product', categoryLabel:'Product design', tags:['Product design','User research','Figma','Figma Make'], year:'2026', desc:'An India-first marketplace concept for finding verified, flexible warehouse capacity and helping warehouse owners monetise idle space through clear listings, matching, comparison, and tour requests.', img:'assets/why-space/warehouse-space-sharer-mockup.png', url:'https://www.figma.com/proto/t6pKWiB239mQkBvoRTiPBe/Why-Space?node-id=58-15&starting-point-node-id=58%3A15&t=9b45kdATk45tirfG-1' },
         ],
 
         get visibleCount() {

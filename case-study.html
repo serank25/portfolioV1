@@ -106,7 +106,6 @@
         <li><a href="index.html#services" class="nav-link text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Services</a></li>
         <li><a href="projects.html" class="nav-link text-accent font-medium">Work</a></li>
         <li><a href="index.html#about" class="nav-link text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">About</a></li>
-        <li><a href="blog.html" class="nav-link text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Blog</a></li>
         <li><a href="index.html#contact" class="nav-link text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Contact</a></li>
       </ul>
       <div class="flex items-center gap-3">
@@ -131,7 +130,6 @@
         <li><a href="index.html#services" @click="mobileMenu=false" class="block text-zinc-700 dark:text-zinc-300">Services</a></li>
         <li><a href="projects.html" @click="mobileMenu=false" class="block text-accent font-medium">Work</a></li>
         <li><a href="index.html#about" @click="mobileMenu=false" class="block text-zinc-700 dark:text-zinc-300">About</a></li>
-        <li><a href="blog.html" @click="mobileMenu=false" class="block text-zinc-700 dark:text-zinc-300">Blog</a></li>
         <li><a href="index.html#contact" @click="mobileMenu=false" class="block text-zinc-700 dark:text-zinc-300">Contact</a></li>
       </ul>
     </div>
@@ -416,67 +414,6 @@
       </div>
     </article>
 
-    <!-- ═══ MORE PROJECTS ═══ -->
-    <section class="bg-zinc-50 dark:bg-zinc-900/50 py-16">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="flex items-center justify-between mb-8">
-          <h2 class="font-display font-bold text-2xl text-zinc-900 dark:text-white">More projects</h2>
-          <a href="projects.html" class="text-sm font-medium text-accent nav-link hidden md:block">View all →</a>
-        </div>
-        <div class="grid md:grid-cols-3 gap-6">
-
-          <article class="reveal card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-colors">
-            <div class="photo-frame w-full h-44">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" alt="Finlo — Fintech App" loading="lazy"/>
-            </div>
-            <div class="p-5">
-              <div class="flex gap-2 mb-2">
-                <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-2.5 py-1 rounded-full">Landing page</span>
-              </div>
-              <a href="#">
-                <h3 class="font-display font-bold text-base text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Finlo — Fintech App</h3>
-              </a>
-              <a href="#" class="text-sm font-medium text-accent nav-link">View project →</a>
-            </div>
-          </article>
-
-          <article class="reveal card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-colors">
-            <div class="photo-frame w-full h-44">
-              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=700&q=80" alt="Orea — Creative Agency" loading="lazy"/>
-            </div>
-            <div class="p-5">
-              <div class="flex gap-2 mb-2">
-                <span class="text-xs bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-2.5 py-1 rounded-full">Agency</span>
-              </div>
-              <a href="#">
-                <h3 class="font-display font-bold text-base text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Orea — Creative Agency</h3>
-              </a>
-              <a href="#" class="text-sm font-medium text-accent nav-link">View project →</a>
-            </div>
-          </article>
-
-          <article class="reveal card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-colors">
-            <div class="photo-frame w-full h-44">
-              <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=700&q=80" alt="Bloom — E-commerce" loading="lazy"/>
-            </div>
-            <div class="p-5">
-              <div class="flex gap-2 mb-2">
-                <span class="text-xs bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-2.5 py-1 rounded-full">E-commerce</span>
-              </div>
-              <a href="#">
-                <h3 class="font-display font-bold text-base text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Bloom — E-commerce</h3>
-              </a>
-              <a href="#" class="text-sm font-medium text-accent nav-link">View project →</a>
-            </div>
-          </article>
-
-        </div>
-        <div class="text-center mt-8 md:hidden">
-          <a href="projects.html" class="text-sm font-medium text-accent">View all projects →</a>
-        </div>
-      </div>
-    </section>
-
     <!-- ═══ CTA ═══ -->
     <section class="py-24">
       <div class="max-w-6xl mx-auto px-6">
@@ -499,8 +436,7 @@
 
   <footer class="border-t border-zinc-100 dark:border-zinc-900">
     <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-sm text-zinc-400">© <span id="yr"></span> Seran K. All rights reserved. <br> Developed by <a href="https://lbegey78.gumroad.com/" target="_blank" class="font-bold">Laurent Begey</a> • Distributed by <a href="https://themewagon.com/" target="_blank" class="font-bold">ThemeWagon</a></p>
-      <p class="text-xs text-zinc-500">Built with <a href="https://tailwindcss.com" class="hover:text-zinc-900 dark:hover:text-white transition-colors" rel="noopener noreferrer" target="_blank">Tailwind CSS</a> &amp; <a href="https://alpinejs.dev" class="hover:text-zinc-900 dark:hover:text-white transition-colors" rel="noopener noreferrer" target="_blank">Alpine.js</a></p>
+      <p class="text-sm text-zinc-400">© <span id="yr"></span> Seran K. All rights reserved.</p>
     </div>
   </footer>
 
