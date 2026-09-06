@@ -577,11 +577,12 @@ function app() {
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
       document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-      // contact form — static-hosting-safe mailto handoff with a visible fallback
+      // contact form — direct delivery through Formspree
       const form = document.getElementById('contact-form');
       const status = document.getElementById('form-status');
-      if (form && status) {
-        form.addEventListener('submit', event => {
+      const submitButton = form?.querySelector('button[type="submit"]');
+      if (form && status && submitButton) {
+        form.addEventListener('submit', async event => {
           event.preventDefault();
 
           if (!form.checkValidity()) {
@@ -589,37 +590,31 @@ function app() {
             return;
           }
 
-          const data = new FormData(form);
-          const name = String(data.get('name') || '').trim();
-          const email = String(data.get('email') || '').trim();
-          const subject = String(data.get('subject') || '').trim() || 'Portfolio inquiry';
-          const message = String(data.get('message') || '').trim();
-          const body = [
-            `Name: ${name}`,
-            `Email: ${email}`,
-            '',
-            message
-          ].join('\n');
-          const mailto = `mailto:serank2502@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          const originalLabel = submitButton.textContent;
+          submitButton.disabled = true;
+          submitButton.textContent = 'Sending…';
+          status.textContent = 'Sending your message…';
 
-          status.replaceChildren();
-          const notice = document.createElement('span');
-          notice.textContent = 'Your message is ready. If your email app did not open, ';
-          const emailLink = document.createElement('a');
-          emailLink.href = mailto;
-          emailLink.textContent = 'click here to open it';
-          emailLink.className = 'underline underline-offset-2 text-white hover:text-accent-light';
-          const fallback = document.createTextNode(' or email serank2502@gmail.com directly.');
-          status.append(notice, emailLink, fallback);
+          try {
+            const response = await fetch('https://formspree.io/f/xzebarzw', {
+              method: 'POST',
+              body: new FormData(form),
+              headers: { Accept: 'application/json' }
+            });
 
-          if (navigator.clipboard && window.isSecureContext) {
-            navigator.clipboard.writeText(body).then(() => {
-              const copied = document.createTextNode(' The message was also copied to your clipboard.');
-              status.appendChild(copied);
-            }).catch(() => {});
+            if (!response.ok) {
+              throw new Error(`Form submission failed with status ${response.status}`);
+            }
+
+            form.reset();
+            status.textContent = 'Thanks — your message was sent successfully. I’ll get back to you soon.';
+          } catch (error) {
+            console.error('Contact form submission failed:', error);
+            status.textContent = 'We could not send your message right now. Please email serank2502@gmail.com directly.';
+          } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = originalLabel;
           }
-
-          window.location.href = mailto;
         });
       }
       // year
